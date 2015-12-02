@@ -57,8 +57,12 @@ var line4;
 		document.getElementById('add-text').onclick = function() {
 			var text = $("#text-string").val();
 		    var textSample = new fabric.Text(text, {
-		      left: fabric.util.getRandomInt(0, 200),
-		      top: fabric.util.getRandomInt(0, 400),
+              // Randomly place text on canvas
+		      //left: fabric.util.getRandomInt(0, 200),
+              //top: fabric.util.getRandomInt(0, 400),
+              // Place text centred on canvas
+              left: canvas.width/2,
+              top: canvas.height/2,
 		      fontFamily: 'helvetica',
 		      angle: 0,
 		      fill: '#000000',
