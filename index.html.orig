@@ -282,39 +282,53 @@
     <script src="js/bootstrap.min.js"></script>    
     <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35639689-1']);
-  _gaq.push(['_trackPageview']);
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35639689-1']);
+      _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
 
+<<<<<<< HEAD
+      // Handle image uploads and canvas resize
+      document.getElementById('imgLoader').onchange = function handleImage(e) {
+          var reader = new FileReader();
+          reader.onload = function (event) { console.log('fdsf');
+              var imgObj = new Image();
+              imgObj.src = event.target.result;
+              imgObj.onload = function () {
+                  
+                    var image = new fabric.Image(imgObj);
+=======
   // Handle image uploads and canvas resize
   document.getElementById('imgLoader').onchange = function handleImage(e) {
       var reader = new FileReader();
-      reader.onload = function (event) { console.log('fdsf');
+      reader.onload = function (event) {
+          console.log('uploaded image: ' + event.target.result);
+
           var imgObj = new Image();
           imgObj.src = event.target.result;
           imgObj.onload = function () {
               
                 var image = new fabric.Image(imgObj);
+>>>>>>> 89983b63f1204c26273720db28bd210de8855fd6
 
-                // make sure the image fits into the canvas...
-                width_ratio = image.width / canvas.width;
-                height_ratio = image.height / canvas.height;
+                    // make sure the image fits into the canvas...
+                    width_ratio = image.width / canvas.width;
+                    height_ratio = image.height / canvas.height;
 
-                if (width_ratio > height_ratio) {
-                    fw = image.width * width_ratio;
-                    fh = image.height * fw/image.width;
-                } else {
-                    fh = image.height * height_ratio;
-                    fw = image.width * fh/image.height;
-                }
-                imgx = image.height/fh,
-                imgy = image.width/fw
+                    if (width_ratio > height_ratio) {
+                        fw = image.width * width_ratio;
+                        fh = image.height * fw/image.width;
+                    } else {
+                        fh = image.height * height_ratio;
+                        fw = image.width * fh/image.height;
+                    }
+                    imgx = image.height/fh,
+                    imgy = image.width/fw
 
                     image.set({
                         lockUniScaling: true,
@@ -322,14 +336,18 @@
                         scaleX: imgy
                     });
 
+<<<<<<< HEAD
                   canvas.add(image);
                   canvas.centerObject(image);
               }
+=======
+              canvas.add(image);
+              canvas.centerObject(image);
+>>>>>>> 89983b63f1204c26273720db28bd210de8855fd6
           }
+          reader.readAsDataURL(e.target.files[0]);
       }
-      reader.readAsDataURL(e.target.files[0]);
-  }
-  // eo image uploads
-</script>
+      // eo image uploads
+    </script>
   </body>
 </html>
